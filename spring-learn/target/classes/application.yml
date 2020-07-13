@@ -1,0 +1,15 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: spirng-Kiss-learn
+  rabbitmq:
+    host: 121.199.44.208
+    port: 5672
+    username: root
+    password: rabbitmqpwd
+  redis:
+    port: 6371
+    password: redis123
+    host: 121.199.44.208
+
