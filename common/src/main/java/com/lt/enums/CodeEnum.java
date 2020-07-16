@@ -1,4 +1,4 @@
-package com.lt.springLearn.common;
+package com.lt.enums;
 
 /**
  * @author liangtao

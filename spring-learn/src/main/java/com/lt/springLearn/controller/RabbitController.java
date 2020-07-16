@@ -1,6 +1,6 @@
 package com.lt.springLearn.controller;
 
-import com.lt.springLearn.common.ResultVo;
+import com.lt.Vo.ResultVo;
 import com.lt.springLearn.mq.direct.DirectSender;
 import com.lt.springLearn.mq.fanout.FanoutSender;
 import com.lt.springLearn.mq.simple.SimpleSender;

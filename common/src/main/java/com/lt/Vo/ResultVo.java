@@ -1,7 +1,8 @@
-package com.lt.springLearn.common;
+package com.lt.Vo;
 
 import cn.hutool.core.builder.EqualsBuilder;
 import cn.hutool.core.builder.HashCodeBuilder;
+import com.lt.enums.CodeEnum;
 
 import java.io.Serializable;
 

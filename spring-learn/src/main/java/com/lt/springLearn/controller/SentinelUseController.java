@@ -1,6 +1,6 @@
 package com.lt.springLearn.controller;
 
-import com.lt.springLearn.common.ResultVo;
+import com.lt.Vo.ResultVo;
 import com.lt.springLearn.service.SentinelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

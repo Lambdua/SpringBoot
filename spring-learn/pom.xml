@@ -8,9 +8,9 @@
         <version>2.3.0.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.lt.</groupId>
+    <groupId>com.lt</groupId>
     <artifactId>spring-learn</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0-SNAPSHOT</version>
     <name>spring-learn</name>
     <description>learn spring</description>
 
@@ -27,8 +27,6 @@
         <!--<mybatis.version>3.5.3</mybatis.version>-->
         <pagehelper.version>5.1.11</pagehelper.version>
         <elasticsearch.version>6.7.0</elasticsearch.version>
-        <fastjson.version>1.2.54</fastjson.version>
-        <hutool.version>4.3.1</hutool.version>
         <redis.version>2.9.0</redis.version>
         <asposeCad.version>20.4</asposeCad.version>
         <sentinel.version>1.7.2</sentinel.version>
@@ -38,6 +36,11 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>com.lt</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
@@ -66,7 +69,6 @@
             <version>2.1.0.RELEASE</version>
         </dependency>
 
-
         <!--rabbitMQ-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -90,32 +92,14 @@
             <version>${elasticsearch.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
 
         <!--redis-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
-        <!-- <dependency>
-             <groupId>org.apache.commons</groupId>
-             <artifactId>commons-pool2</artifactId>
-         </dependency>-->
+
 
         <!--aspose-cad-->
         <!--<dependency>
@@ -128,22 +112,9 @@
             <artifactId>aspose-cad</artifactId>
             <version>19.9</version>
             <scope>system</scope>
-            <!--<systemPath>${basedir}/lib/aspose-cad-19.9.jar</systemPath>-->
             <systemPath>${basedir}/lib/aspose-cad-20.6.jar</systemPath>
         </dependency>
 
-
-
-        <!--<dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-core</artifactId>
-            <version>${sentinel.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-transport-simple-http</artifactId>
-            <version>${sentinel.version}</version>
-        </dependency>-->
     </dependencies>
 
     <build>
