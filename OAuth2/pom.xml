@@ -5,8 +5,15 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.lt.auth2</groupId>
-    <artifactId>password-server</artifactId>
+    <artifactId>OAuth2</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>password-credentials </module>
+        <module>password-server</module>
+    </modules>
+
     <properties>
         <!-- 依赖相关配置 -->
         <spring.boot.version>2.2.4.RELEASE</spring.boot.version>
@@ -24,23 +31,22 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+
+            <!-- 实现对 Spring MVC 的自动配置 -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+
+            <!-- 实现对 Spring Security OAuth2 的自动配置 -->
+            <dependency>
+                <groupId>org.springframework.security.oauth.boot</groupId>
+                <artifactId>spring-security-oauth2-autoconfigure</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-        <!-- 实现对 Spring MVC 的自动配置 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-
-        <!-- 实现对 Spring Security OAuth2 的自动配置 -->
-        <dependency>
-            <groupId>org.springframework.security.oauth.boot</groupId>
-            <artifactId>spring-security-oauth2-autoconfigure</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-    </dependencies>
 
 </project>
