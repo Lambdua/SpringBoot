@@ -1,7 +1,0 @@
-
-r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(“ˆ¾£üÿÿÿÿ
-Q	java:S106"9Replace this use of System.out or System.err by a logger.(û‹Áşÿÿÿÿ
-L	java:S106"9Replace this use of System.out or System.err by a logger.(úÅˆŞ
-ƒ
-java:S3457"oLooks like there is a confusion with the use of java.text.MessageFormat, parameters will be simply ignored here(ÅÊœú
-L	java:S106"9Replace this use of System.out or System.err by a logger.(ÅÊœú
