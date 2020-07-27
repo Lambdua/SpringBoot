@@ -17,6 +17,7 @@ public class OAuth2ResourceServerConfig extends ResourceServerConfigurerAdapter 
     public void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
                 .antMatchers("/login").permitAll()
+                .antMatchers("/callback").permitAll()
                 .anyRequest().authenticated();
     }
 }

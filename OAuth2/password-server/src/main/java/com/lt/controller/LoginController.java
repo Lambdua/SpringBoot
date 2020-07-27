@@ -2,6 +2,7 @@ package com.lt.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.autoconfigure.security.oauth2.OAuth2ClientProperties;
 import org.springframework.security.oauth2.client.OAuth2RestTemplate;
 import org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordAccessTokenProvider;
 import org.springframework.security.oauth2.client.token.grant.password.ResourceOwnerPasswordResourceDetails;
@@ -19,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/")
 public class LoginController {
     @Autowired
-//    OAuth2ClientProperties oAuth2ClientProperties;
+    OAuth2ClientProperties oAuth2ClientProperties;
     @Value("${security.oauth2.client.client-id}")
     private String clientId;
     @Value("${security.oauth2.client.client-secret}")
@@ -31,7 +32,6 @@ public class LoginController {
     public OAuth2AccessToken login(@RequestParam("username") String username,
                                    @RequestParam("password") String password) {
         // <1> 创建 ResourceOwnerPasswordResourceDetails 对象
-        System.out.println(clientId);
         ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
         resourceDetails.setAccessTokenUri(accessTokenUri);
         resourceDetails.setClientId(clientId);

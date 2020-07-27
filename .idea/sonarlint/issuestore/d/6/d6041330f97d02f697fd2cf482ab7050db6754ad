@@ -1,0 +1,15 @@
+
+_
+java:S1192"FDefine a constant instead of duplicating this literal "title" 3 times.(ÒšÁşÿÿÿÿ
+r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(€„»¹ÿÿÿÿÿ
+<
+java:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+J
+java:S1874"1Remove this use of "bulkAsync"; it is deprecated.(èèããúÿÿÿÿ
+Z
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+J
+java:S1874"1Remove this use of "bulkAsync"; it is deprecated.(ëÊ³‘øÿÿÿÿ
+Z
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+O	java:S125"<This block of commented-out lines of code should be removed.(†€éˆ

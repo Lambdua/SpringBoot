@@ -1,0 +1,8 @@
+
+r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Û¢ßƒüÿÿÿÿ
+h
+java:S1104"TMake username a static final constant or non-public and provide accessors if needed.(Ü±›Ô
+j
+java:S1104"QMake birth a static final constant or non-public and provide accessors if needed.(¼¡Éùÿÿÿÿ
+c
+java:S1104"OMake age a static final constant or non-public and provide accessors if needed.(Ë˜âÉ

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OAuth2/OAuth2.iml" filepath="$PROJECT_DIR$/OAuth2/OAuth2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OAuth2/authorization-credentials-by-code/authorization-credentials-by-code.iml" filepath="$PROJECT_DIR$/OAuth2/authorization-credentials-by-code/authorization-credentials-by-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OAuth2/authorization-resource-with-code/authorization-resource-with-code.iml" filepath="$PROJECT_DIR$/OAuth2/authorization-resource-with-code/authorization-resource-with-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OAuth2/authorization-server-by-authorization-code/authorization-server-by-authorization-code.iml" filepath="$PROJECT_DIR$/OAuth2/authorization-server-by-authorization-code/authorization-server-by-authorization-code.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-api-commons/cloud-api-commons.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-api-commons/cloud-api-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-consumer-feign-order80/cloud-consumer-feign-order80.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-consumer-feign-order80/cloud-consumer-feign-order80.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-consumer-order80/cloud-consumer-order80.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-consumer-order80/cloud-consumer-order80.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-consumerzk-order80/cloud-consumerzk-order80.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-consumerzk-order80/cloud-consumerzk-order80.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-eureka-server7001/cloud-eureka-server7001.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-eureka-server7001/cloud-eureka-server7001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-eureka-server7002/cloud-eureka-server7002.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-eureka-server7002/cloud-eureka-server7002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-provider-payment8001/cloud-provider-payment8001.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-provider-payment8001/cloud-provider-payment8001.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-provider-payment8002/cloud-provider-payment8002.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-provider-payment8002/cloud-provider-payment8002.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/cloud-provider-payment8004/cloud-provider-payment8004.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/cloud-provider-payment8004/cloud-provider-payment8004.iml" />
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OAuth2/password-credentials/password-credentials.iml" filepath="$PROJECT_DIR$/OAuth2/password-credentials/password-credentials.iml" />
+      <module fileurl="file://$PROJECT_DIR$/OAuth2/password-server/password-server.iml" filepath="$PROJECT_DIR$/OAuth2/password-server/password-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-learn/spring-learn.iml" filepath="$PROJECT_DIR$/spring-learn/spring-learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SpringCloudLearn-master/springcloudLearn.iml" filepath="$PROJECT_DIR$/SpringCloudLearn-master/springcloudLearn.iml" />
+    </modules>
+  </component>
+</project>

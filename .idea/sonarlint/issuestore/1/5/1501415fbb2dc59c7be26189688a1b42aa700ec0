@@ -1,0 +1,27 @@
+
+A
+java:S1444"-Make this "public static pattern" field final(®Ëø¼
+c
+java:S1192"JDefine a constant instead of duplicating this literal " status: " 3 times.(õ”ıÿÿÿÿ
+r
+java:S1192"YDefine a constant instead of duplicating this literal "===================>id: " 3 times.(õ”ıÿÿÿÿ
+r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Êğ²¹üÿÿÿÿ
+g
+java:S1104"SMake pattern a static final constant or non-public and provide accessors if needed.(®Ëø¼
+[
+java:S5361"HReplace this call to "replaceAll()" by a call to the "replace()" method.(ÜşT
+N
+java:S1854":Remove this useless assignment to local variable "status".(ò¹Ø
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(õ”ıÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(õ”ıÿÿÿÿ
+N
+java:S1854";Remove this useless assignment to local variable "request".(ü¤'
+€
+java:S1130"lRemove the declaration of thrown exception 'java.io.IOException', as it cannot be thrown from method's body.(©ï æ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(õ”ıÿÿÿÿ
+?
+java:S1481"+Remove this unused "status" local variable.(ò¹Ø
+?
+java:S1481",Remove this unused "request" local variable.(ü¤'
+O	java:S125"<This block of commented-out lines of code should be removed.(êÓËĞ
+N	java:S125"<This block of commented-out lines of code should be removed.(æÍ¥J

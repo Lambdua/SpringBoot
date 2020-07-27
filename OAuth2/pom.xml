@@ -12,6 +12,9 @@
     <modules>
         <module>password-credentials </module>
         <module>password-server</module>
+        <module>authorization-server-by-authorization-code</module>
+        <module>authorization-resource-with-code</module>
+        <module>authorization-credentials-by-code</module>
     </modules>
 
     <properties>

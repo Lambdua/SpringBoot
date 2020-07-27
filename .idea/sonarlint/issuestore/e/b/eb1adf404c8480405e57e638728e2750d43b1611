@@ -1,0 +1,8 @@
+
+r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Êð²¹üÿÿÿÿ
+G
+java:S1874".Remove this use of "exists"; it is deprecated.(“²ïÞøÿÿÿÿ
+L	java:S106"9Replace this use of System.out or System.err by a logger.(«Ø«„
+G
+java:S1874".Remove this use of "create"; it is deprecated.(Îšêðúÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(”¤ÅÃüÿÿÿÿ

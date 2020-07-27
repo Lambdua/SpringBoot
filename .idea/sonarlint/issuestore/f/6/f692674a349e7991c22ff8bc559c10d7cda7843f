@@ -1,0 +1,33 @@
+
+t
+java:S1192"[Define a constant instead of duplicating this literal " æ™®é€šæŸ¥è¯¢çš„DSLè¯­å¥:" 3 times.(‡œù‰ÿÿÿÿÿ
+r	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Êğ²¹üÿÿÿÿ
+t
+java:S1488"`Immediately return this expression instead of assigning it to the temporary variable "response".(ßÍü¨
+@
+java:S1602",Remove useless curly braces around statement(ñ¬Ò¡
+L	java:S106"9Replace this use of System.out or System.err by a logger.(îèÍ
+N
+java:S1117":Rename "client" which hides the field declared at line 42.(ëşµ˜
+L	java:S106"9Replace this use of System.out or System.err by a logger.(Ğºˆ×
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(‡œù‰ÿÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(‡œù‰ÿÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(‡œù‰ÿÿÿÿÿ
+K	java:S106"9Replace this use of System.out or System.err by a logger.(×’–
+K	java:S106"9Replace this use of System.out or System.err by a logger.(×’–
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(¢Ã‰Şúÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(Èå¦üşÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(¶ç³©ûÿÿÿÿ
+L	java:S106"9Replace this use of System.out or System.err by a logger.(½ Ê„
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(ë‰ôøÿÿÿÿ
+K	java:S106"9Replace this use of System.out or System.err by a logger.(û¾Ùd
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(Ó¤”úÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(“—í¦úÿÿÿÿ
+K	java:S106"9Replace this use of System.out or System.err by a logger.(ùğF
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(ŞÇ–’ıÿÿÿÿ
+Q	java:S106"9Replace this use of System.out or System.err by a logger.(ŸÓÓ¦şÿÿÿÿ
+O	java:S125"<This block of commented-out lines of code should be removed.(’ µÀ
+T	java:S125"<This block of commented-out lines of code should be removed.(Å™×œøÿÿÿÿ
+T	java:S125"<This block of commented-out lines of code should be removed.(áâüÿÿÿÿ
+O	java:S125"<This block of commented-out lines of code should be removed.(¯¨ëÏ
+O	java:S125"<This block of commented-out lines of code should be removed.(õË»Â

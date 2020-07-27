@@ -1,0 +1,39 @@
+
+N
+java:S1905‰"0Remove this unnecessary cast to "RedisCallback".(ü¬žŽ8¨ðºµ´.
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Í²ä¾8¨ðºµ´.
+N
+java:S1905ò"0Remove this unnecessary cast to "RedisCallback".(ÑœŸÙ8¨ðºµ´.
+S
+java:S10681"1Remove this unused "objSerializer" private field.(´‰Ë÷ÿÿÿÿÿ8¨ðºµ´.
+Y	java:S125ß"<This block of commented-out lines of code should be removed.(ùÅƒ®8¨ðºµ´.
+S
+java:S1905ˆ"0Remove this unnecessary cast to "RedisCallback".(™Ð¨Åýÿÿÿÿ8¨ðºµ´.
+L
+java:S37402"/Provide the parametrized type for this generic.(¬­ëË8¨ðºµ´.
+N
+java:S1905Ë"0Remove this unnecessary cast to "RedisCallback".(½Åìð8¨ðºµ´.
+H
+java:S5411·"*Use the primitive boolean expression here.(šÖíß8¨ðºµ´.
+N
+java:S1905¡"0Remove this unnecessary cast to "RedisCallback".(ü¬žŽ8¨ðºµ´.
+S
+java:S1905ì"0Remove this unnecessary cast to "RedisCallback".( ïÂüûÿÿÿÿ8¨ðºµ´.
+S
+java:S1905Ö"0Remove this unnecessary cast to "RedisCallback".(ÖÚŽ«þÿÿÿÿ8¨ðºµ´.
+S
+java:S1905Ý"0Remove this unnecessary cast to "RedisCallback".(¼©ñ¡üÿÿÿÿ8¨ðºµ´.
+M
+java:S1905µ"0Remove this unnecessary cast to "RedisCallback".(Òœü8¨ðºµ´.
+g
+java:S3252˜"IUse static access with "cn.hutool.core.collection.CollUtil" for "toList".(»£†°8ïóÀµ´.
+P
+java:S1068!"3Remove this unused "DEFAULT_CHARSET" private field.(Ö¦þ®8¨ðºµ´.
+L
+java:S3740,"/Provide the parametrized type for this generic.(ýž¢ô8¨ðºµ´.
+L
+java:S1905f"0Remove this unnecessary cast to "RedisCallback".(Òœü8¨ðºµ´.
+H
+java:S5411£"*Use the primitive boolean expression here.(Žß„½8¨ðºµ´.
+H
+java:S5411‹"*Use the primitive boolean expression here.(Õ¼Á©8¨ðºµ´.

@@ -36,10 +36,14 @@ public class OAuth2AuthorizationServerConfig extends AuthorizationServerConfigur
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("clientapp").secret("112233") // Client 账号、密码。
-                .authorizedGrantTypes("password") // 密码模式
-                .scopes("read_userinfo", "read_contacts") // 可授权的 Scope
-//                .and().withClient() // 可以继续配置新的 Client
+                // Client 账号、密码。
+                .withClient("clientapp").secret("112233")
+                // 密码模式
+                .authorizedGrantTypes("password")
+                // 可授权的 Scope
+                .scopes("read_userinfo", "read_contacts")
+                // 可以继续配置新的 Client
+//                .and().withClient()
         ;
     }
 }
