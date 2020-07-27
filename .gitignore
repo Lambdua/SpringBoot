@@ -8,7 +8,7 @@
 *.iml
 **/out/
 gen
-**/target/
+**/target/**
 
 ### Java template
 # Compiled class file
