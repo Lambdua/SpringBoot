@@ -3,7 +3,6 @@ package com.lt.springLearn.redis.config;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.jcache.config.JCacheConfigurerSupport;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
@@ -21,7 +20,7 @@ import java.util.Set;
  * @Date 2020/7/6
  * redisTemplate的配置类
  **/
-@Configuration
+//@Configuration
 public class RedisConfig extends JCacheConfigurerSupport {
     private final String CACHE_SET1 = "my-redis-cache1";
     private final String CACHE_SET2 = "my-redis-cache2";

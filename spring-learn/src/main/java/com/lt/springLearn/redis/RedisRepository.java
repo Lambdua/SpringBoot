@@ -404,7 +404,6 @@ public class RedisRepository implements InitializingBean {
      * @param end -1查询全部
      */
     public List<Object> getList(String key,int start,int end){
-
         return opsForList().range(key,start,end);
     }
 

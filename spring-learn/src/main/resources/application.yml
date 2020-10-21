@@ -9,7 +9,10 @@ spring:
     username: root
     password: rabbitmqpwd
   redis:
-    port: 6371
-    password: redis123
-    host: 121.199.44.208
+    port: 6379
+    host: 172.168.10.223
+    password: agile12345
+#    port: 6371
+#    password: redis123
+#    host: 121.199.44.208
 

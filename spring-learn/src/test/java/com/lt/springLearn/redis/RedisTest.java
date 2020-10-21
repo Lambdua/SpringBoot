@@ -10,6 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -26,13 +27,11 @@ public class RedisTest {
     private static final String USER_KEY = "user";
     private static final String HASH_KEY = "user_group";
 
-    @Test
     public void kvTest(){
         setTest();
         getTest();
         deleteTest();
     }
-    @Test
     public void hashTest(){
         hashPushTest();
         hashGetTest();
@@ -91,6 +90,10 @@ public class RedisTest {
         Assert.assertEquals(deleteCounts,Long.valueOf(hashKeys.size()));
     }
 
+    @Test
+    public void agileTest(){
+        List<Object> list = redisRepository.getList("client_id_to_access:dm_web", 0, 10);
+    }
 
 
 
