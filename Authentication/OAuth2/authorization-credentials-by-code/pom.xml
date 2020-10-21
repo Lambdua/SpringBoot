@@ -5,15 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>com.lt.auth2</groupId>
+        <groupId>com.lt</groupId>
         <artifactId>OAuth2</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.lt.auth2</groupId>
     <artifactId>authorization-credentials-by-code</artifactId>
-    <version>1.0-SNAPSHOT</version>
 
 
     <dependencies>
