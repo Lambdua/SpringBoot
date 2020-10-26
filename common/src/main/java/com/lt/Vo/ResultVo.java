@@ -15,6 +15,10 @@ public class ResultVo<T> implements Serializable {
     private Integer code;
     private String msg;
 
+    public static void main(String[] args) {
+        System.out.println("123");
+    }
+
     public static <T> ResultVo<T> succeed() {
         return succeed("操作成功");
     }
