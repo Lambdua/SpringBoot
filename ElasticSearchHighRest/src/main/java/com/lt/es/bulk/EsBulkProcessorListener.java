@@ -1,4 +1,4 @@
-package com.lt.springLearn.es.bulk;
+package com.lt.es.bulk;
 
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.bulk.BulkProcessor;

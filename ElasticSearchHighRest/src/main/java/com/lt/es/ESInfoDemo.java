@@ -1,4 +1,4 @@
-package com.lt.springLearn.es;
+package com.lt.es;
 
 import org.elasticsearch.action.main.MainResponse;
 import org.elasticsearch.client.RequestOptions;

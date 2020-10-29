@@ -1,6 +1,6 @@
-package com.lt.springLearn.es;
+package com.lt.es;
 
-import com.lt.springLearn.common.ESConstans;
+import com.lt.es.common.ESConstans;
 import org.elasticsearch.action.admin.indices.alias.Alias;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequest;
 import org.elasticsearch.action.admin.indices.create.CreateIndexResponse;
@@ -12,7 +12,8 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.lt.springLearn.common.ESConstans.INDEX;
+import static com.lt.es.common.ESConstans.INDEX;
+
 
 /**
  * @author liangtao

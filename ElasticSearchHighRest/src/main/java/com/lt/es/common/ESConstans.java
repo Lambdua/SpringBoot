@@ -1,4 +1,4 @@
-package com.lt.springLearn.common;
+package com.lt.es.common;
 
 /**
  * @author liangtao

@@ -1,6 +1,6 @@
-package com.lt.springLearn.es;
+package com.lt.es;
 
-import com.lt.springLearn.common.ESConstans;
+import com.lt.es.common.ESConstans;
 import org.elasticsearch.action.search.*;
 import org.elasticsearch.action.support.IndicesOptions;
 import org.elasticsearch.client.RequestOptions;

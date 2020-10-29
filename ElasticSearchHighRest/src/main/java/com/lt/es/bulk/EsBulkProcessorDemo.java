@@ -1,9 +1,9 @@
-package com.lt.springLearn.es.bulk;
+package com.lt.es.bulk;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.RandomUtil;
-import com.lt.springLearn.common.ESConstans;
-import com.lt.springLearn.es.EsClient;
+import com.lt.es.EsClient;
+import com.lt.es.common.ESConstans;
 import org.elasticsearch.action.bulk.BackoffPolicy;
 import org.elasticsearch.action.bulk.BulkProcessor;
 import org.elasticsearch.action.index.IndexRequest;

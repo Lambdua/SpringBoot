@@ -1,6 +1,6 @@
-package com.lt.springLearn.es;
+package com.lt.es;
 
-import com.lt.springLearn.common.ESConstans;
+import com.lt.es.common.ESConstans;
 import org.elasticsearch.action.update.UpdateRequest;
 import org.elasticsearch.action.update.UpdateResponse;
 import org.elasticsearch.client.RequestOptions;

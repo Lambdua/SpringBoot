@@ -1,6 +1,6 @@
-package com.lt.springLearn.es;
+package com.lt.es;
 
-import com.lt.springLearn.common.ESConstans;
+import com.lt.es.common.ESConstans;
 import org.apache.http.HttpHost;
 import org.apache.http.auth.AuthScope;
 import org.apache.http.auth.UsernamePasswordCredentials;
