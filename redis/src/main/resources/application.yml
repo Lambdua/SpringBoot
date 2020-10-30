@@ -2,7 +2,7 @@ server:
   port: 9090
 spring:
   application:
-    name: spirng-Kiss-learn
+    name: redis-learn
   rabbitmq:
     host: 121.199.44.208
     port: 5672
@@ -12,7 +12,16 @@ spring:
     port: 6379
     host: 172.168.10.223
     password: agile12345
-#    port: 6371
-#    password: redis123
-#    host: 121.199.44.208
+    lettuce:
+      pool:
+        #连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        #连接池中的最大空闲连接
+        max-idle: 8
+        #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        #连接池中的最小空闲连接
+        min-idle: 0
+    #连接超时时间（毫秒）
+    timeout: 30000
 

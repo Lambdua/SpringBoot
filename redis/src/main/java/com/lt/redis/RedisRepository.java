@@ -1,7 +1,10 @@
 package com.lt.redis;
 
-import cn.hutool.core.collection.CollectionUtil;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ArrayUtil;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,58 +15,67 @@ import org.springframework.data.redis.core.HashOperations;
 import org.springframework.data.redis.core.ListOperations;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
-import org.springframework.data.redis.serializer.JdkSerializationRedisSerializer;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
 import java.util.*;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 /**
+ * redis操作类
+ *
  * @author liangtao
- * @Date 2020/7/6
+ * @date 2020/7/6
  **/
 @Component
 @Slf4j
 public class RedisRepository implements InitializingBean {
-    /**
-     * 默认编码
-     */
-    private static final Charset DEFAULT_CHARSET = StandardCharsets.UTF_8;
 
     /**
      * Spring Redis Template
      */
     @Autowired
-    private RedisTemplate<String, Object> redisTemplate;
+    private RedisTemplate<String, String> redisTemplate;
+
+    /**
+     * value 序列化
+     * 默认配置jackson2JsonRedisSerializer
+     */
+    @Autowired
+    RedisSerializer<Object> objectRedisSerializer;
+
+    @Autowired
+    ObjectMapper om;
 
     /**
      * key序列化
      */
-    private RedisSerializer strSerializer;
+    private RedisSerializer<String> strSerializer;
+    private RedisSerializer valueSerializer;
 
-    /**
-     * value 序列化
-     */
-    private final JdkSerializationRedisSerializer objSerializer = new JdkSerializationRedisSerializer();
-    private RedisSerializer valueSerializeer;
 
+    @Override
+    public void afterPropertiesSet() {
+        strSerializer = redisTemplate.getStringSerializer();
+        valueSerializer = redisTemplate.getValueSerializer();
+    }
 
 
     /**
      * 获取链接工厂
      */
     public RedisConnectionFactory getConnectionFactory() {
-        return this.redisTemplate.getConnectionFactory();
+        return redisTemplate.getConnectionFactory();
     }
 
     /**
      * 获取 RedisTemplate对象
      */
-    public RedisTemplate<String, Object> getRedisTemplate() {
+    public RedisTemplate<String, String> getRedisTemplate() {
         return redisTemplate;
     }
+
     /**
      * hash操作
      *
@@ -76,9 +88,9 @@ public class RedisRepository implements InitializingBean {
     /**
      * redis操作List
      */
-    public ListOperations<String,Object> opsForList(){return redisTemplate.opsForList();}
-
-
+    public ListOperations<String, String> opsForList() {
+        return redisTemplate.opsForList();
+    }
 
 
     /**
@@ -119,7 +131,7 @@ public class RedisRepository implements InitializingBean {
      * @param time  过期时间(单位秒)
      */
     public boolean setExpire(final String key, final Object value, final long time) {
-        return setExpire(strSerializer.serialize(key), valueSerializeer.serialize(value), time);
+        return setExpire(strSerializer.serialize(key), valueSerializer.serialize(value), time);
     }
 
     /**
@@ -136,8 +148,7 @@ public class RedisRepository implements InitializingBean {
         }
         return redisTemplate.execute((RedisCallback<Boolean>) connectio -> {
             for (int i = 0; i < keys.length; i++) {
-                if (connectio.setEx(strSerializer.serialize(keys[i]), time, valueSerializeer.serialize(values[i]))) {
-                    log.debug("[redisTemplate redis]放入 缓存  url:{} ========缓存时间为{}秒", keys[i], time);
+                if (connectio.setEx(strSerializer.serialize(keys[i]), time, valueSerializer.serialize(values[i]))) {
                 } else {
                     log.error("[redisTemplate redis]放入 {}:缓存失败{},终止方法执行", keys[i], time);
                     return false;
@@ -160,7 +171,7 @@ public class RedisRepository implements InitializingBean {
         }
         return redisTemplate.execute((RedisCallback<Boolean>) connectio -> {
             for (int i = 0; i < keys.length; i++) {
-                if (connectio.set(strSerializer.serialize(keys[i]), valueSerializeer.serialize(values[i]))) {
+                if (connectio.set(strSerializer.serialize(keys[i]), valueSerializer.serialize(values[i]))) {
                     log.debug("[redisTemplate redis]放入 缓存  url:{} ", keys[i]);
                 } else {
                     log.error("[redisTemplate redis]放入 缓存 url:失败{},终止方法执行", keys[i]);
@@ -180,7 +191,7 @@ public class RedisRepository implements InitializingBean {
     public boolean set(final String key, final Object value) {
         return redisTemplate.execute((RedisCallback<Boolean>) connection -> {
             RedisSerializer<String> serializer = redisTemplate.getStringSerializer();
-            if (connection.set(serializer.serialize(key), valueSerializeer.serialize(value))) {
+            if (connection.set(serializer.serialize(key), valueSerializer.serialize(value))) {
                 log.debug("[redisTemplate redis]放入 缓存  url:{}", key);
                 return true;
             } else {
@@ -220,10 +231,6 @@ public class RedisRepository implements InitializingBean {
      */
     public Set<String> keys(final String keyPatten) {
         return redisTemplate.keys(keyPatten + "*");
-       /* return redisTemplate.execute((RedisCallback<Set<String>>) connection -> {
-            Set<byte[]> keys = connection.keys(strSerializer.serialize(keyPatten + "*"));
-            return keys.stream().map(keyByte->(String)strSerializer.deserialize(keyByte)).collect(Collectors.toSet());
-        });*/
     }
 
     /**
@@ -241,17 +248,12 @@ public class RedisRepository implements InitializingBean {
     public Object get(final String key) {
         Object obj = redisTemplate.execute((RedisCallback<Object>) connect -> {
             byte[] bytes = connect.get(strSerializer.serialize(key));
-            return valueSerializeer.deserialize(bytes);
+            return valueSerializer.deserialize(bytes);
         });
         log.debug("[redisTemplate redis]取出 缓存  url:{} ", key);
         return obj;
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-        strSerializer = redisTemplate.getStringSerializer();
-        valueSerializeer = redisTemplate.getValueSerializer();
-    }
 
     /**
      * 根据key获取对象
@@ -268,7 +270,7 @@ public class RedisRepository implements InitializingBean {
                 for (String key : keys) {
                     byte[] bKeys = strSerializer.serialize(key);
                     byte[] bValues = connection.get(bKeys);
-                    Object value = valueSerializeer.deserialize(bValues);
+                    Object value = valueSerializer.deserialize(bValues);
                     maps.put(key, value);
                 }
             }
@@ -276,8 +278,8 @@ public class RedisRepository implements InitializingBean {
         });
     }
 
-    public long deleteByKeys(String...keys){
-         return redisTemplate.delete(CollectionUtil.toList(keys));
+    public long deleteByKeys(String... keys) {
+        return redisTemplate.delete(CollUtil.toList(keys));
     }
 
     /**
@@ -304,7 +306,7 @@ public class RedisRepository implements InitializingBean {
         return opsForHash().get(key, hashKey);
     }
 
-    public Set<String> getHashKeysByKey(String key){
+    public Set<String> getHashKeysByKey(String key) {
         return opsForHash().keys(key);
     }
 
@@ -358,62 +360,64 @@ public class RedisRepository implements InitializingBean {
     /**
      * 将一个或者多个值插入到list的表头
      */
-    public long leftPush(String key,Object...values){
-        return opsForList().leftPushAll(key,values);
+    public long leftPush(String key, Object... values) {
+        String[] strings = Arrays.stream(values).map(value ->om.writeValueAsString(value)).toArray(String[]::new);
+        return opsForList().leftPushAll(key, strings);
     }
 
     /**
      * 对应leftPush
      */
-    public Object leftPop(String key){
+    public Object leftPop(String key) {
         return opsForList().leftPop(key);
     }
-    public long rightPosh(String key,Object...value){
-        return opsForList().rightPush(key,value);
+
+    public long rightPosh(String key, Object... value) {
+        return opsForList().rightPush(key, value);
     }
-    public Object rightPop(String key){
+
+    public Object rightPop(String key) {
         return opsForList().rightPop(key);
     }
 
     /**
      * 返回size
      */
-    public long listSize(String key){
+    public long listSize(String key) {
         return opsForList().size(key);
     }
 
     /**
-     *
      * @param key
      * @param value
      * @param count 删除条数
      * @return
      */
-    public long remove(String key,Object value,long count){
-        return opsForList().remove(key,count,value);
+    public long remove(String key, Object value, long count) {
+        return opsForList().remove(key, count, value);
     }
 
-    public void listSet(String key,Object value,long index){
-        opsForList().set(key,index,value);
+    public void listSet(String key, Object value, long index) {
+        opsForList().set(key, index, value);
     }
 
     /**
-     *
      * @param key
      * @param start
-     * @param end -1查询全部
+     * @param end   -1查询全部
      */
-    public List<Object> getList(String key,int start,int end){
-        return opsForList().range(key,start,end);
+    public List<Object> getList(String key, int start, int end) {
+        return opsForList().range(key, start, end);
     }
 
     /**
      * 根据index,获取list中的元素
+     *
      * @param key
      * @param index
      * @return
      */
-    public Object getListItem(String key,long index){
-        return opsForList().index(key,index);
+    public Object getListItem(String key, long index) {
+        return opsForList().index(key, index);
     }
 }
