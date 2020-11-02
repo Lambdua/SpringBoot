@@ -290,7 +290,7 @@ public class RedisRepository implements InitializingBean {
      * @author liangtao
      * @date 2020/11/2
      **/
-    public Long deleteHashValues(String key, String... hashKeys) {
+    public Long deleteHashValues(String key, Object... hashKeys) {
         return opsForHash().delete(key, hashKeys);
     }
 
