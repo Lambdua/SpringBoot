@@ -119,6 +119,7 @@ public class RedisAutoConfigure {
     /**
      * 自定义RedisTemplate,这里使用{@link StringRedisTemplate},存储使用json转换
      * 此种序列化方式结果清晰、容易阅读、存储字节少、速度快，所以推荐更换
+     * JdkSerializationRedisSerializer序列化value,
      * @param connectFactory redis连接工厂
      */
     @Bean
@@ -138,7 +139,6 @@ public class RedisAutoConfigure {
      * 设置默认redis cache配置 ：不允许缓存空值，
      * 设置CacheManager的Value序列化方式为JdkSerializationRedisSerializer, 但其实RedisCacheConfiguration默认就是使用
      * StringRedisSerializer序列化key，
-     * JdkSerializationRedisSerializer序列化value,
      * @return org.springframework.data.redis.cache.RedisCacheConfiguration
      * @author liangtao
      * @date 2020/10/30
