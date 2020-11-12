@@ -1,6 +1,6 @@
 package com.lt.mq.controller;
 
-import com.lt.Vo.ResultVo;
+import com.lt.mq.Vo.ResultVo;
 import com.lt.mq.direct.DirectSender;
 import com.lt.mq.fanout.FanoutSender;
 import com.lt.mq.simple.SimpleSender;

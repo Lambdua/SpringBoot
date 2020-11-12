@@ -1,8 +1,8 @@
-package com.lt.Vo;
+package com.lt.mq.Vo;
 
 import cn.hutool.core.builder.EqualsBuilder;
 import cn.hutool.core.builder.HashCodeBuilder;
-import com.lt.enums.CodeEnum;
+import com.lt.mq.enums.CodeEnum;
 
 import java.io.Serializable;
 

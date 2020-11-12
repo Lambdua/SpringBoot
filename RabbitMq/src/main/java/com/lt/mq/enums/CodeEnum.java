@@ -1,4 +1,4 @@
-package com.lt.enums;
+package com.lt.mq.enums;
 
 /**
  * @author liangtao
