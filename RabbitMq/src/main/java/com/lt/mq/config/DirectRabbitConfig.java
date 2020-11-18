@@ -14,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
  * 它包含一个生产者、两个消费者、两个队列和一个交换机。
  * 两个消费者同时绑定到不同的队列上去，两个队列通过路由键绑定到交换机上去
  * 生产者发送消息到交换机，交换机通过路由键转发到不同队列，队列绑定的消费者接收并消费消息。
+ * 注意： 一个消息最终只会发送到多个队列上，对于同一个routerKey绑定到多个队列的，多个队列都会收到消息，类似广播
  **/
 @Configuration
 public class DirectRabbitConfig {

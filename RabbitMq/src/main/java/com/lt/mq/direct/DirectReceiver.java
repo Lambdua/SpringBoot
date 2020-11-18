@@ -16,7 +16,7 @@ public class DirectReceiver implements Receiver {
         accept(msg);
     }
 
-    @RabbitListener(queues = "#{directQueue1.name}")
+    @RabbitListener(queues = "#{directQueue2.name}")
     public void reveive2(String msg) {
         msg = "fanoutType:2 " + msg;
         accept(msg);

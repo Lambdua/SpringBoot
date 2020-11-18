@@ -25,11 +25,13 @@ public class FanoutRabbitConfig {
 
     @Bean
     public Queue fanoutQueue1() {
+        //匿名队列
         return new AnonymousQueue();
     }
 
     @Bean
     public Queue fanoutQueue2(){
+        //具名队列
         return new Queue("q2");
     }
 
