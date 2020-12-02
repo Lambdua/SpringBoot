@@ -38,7 +38,7 @@ public class TimeServer {
             channelFuture.channel().closeFuture().sync();
 
         } catch (InterruptedException e) {
-            System.out.println(e);
+//            System.out.println(e);
         } finally {
             bossGroup.shutdownGracefully();
             workGroup.shutdownGracefully();
