@@ -60,7 +60,7 @@ Redis中，哈希类型是指一个键值对的存储结构。
 
 将以上信息存入redis，用`表名:id`作为key，用户属性作为值：
 
-```xml
+```shell
 hset user:1 name Java旅途 age 18
 ```
 
@@ -110,20 +110,20 @@ hset user:1 name Java旅途 age 18
 
 - 给用户打标签
 
-```xml
+```shell
 sadd user:1:tags tag1 tag2
 ```
 
 - 给标签添加用户
 
-```xml
+```shell
 sadd tag1:users user:1
 sadd tag2:users user:1
 ```
 
 使用交集（sinter）求两个user的共同标签
 
-```xml
+```shell
 sinter user:1:tags user:2:tags
 ```
 
@@ -164,25 +164,25 @@ spop key [count]
 
 用户发布一篇文章，初始点赞数为0，即score为0
 
-```xml
+```shell
 zadd user:article 0 a
 ```
 
 有人给文章a点赞，递增`1`
 
-```xml
+```shell
 zincrby user:article 1 a
 ```
 
 查询点赞前三篇文章
 
-```xml
+```shell
 zrevrangebyscore user:article 0 2
 ```
 
 查询点赞后三篇文章
 
-```xml
+```shell
 zrangebyscore user:article 0 2
 ```
 
