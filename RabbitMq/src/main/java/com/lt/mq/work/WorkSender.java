@@ -1,8 +1,9 @@
 package com.lt.mq.work;
 
+import cn.hutool.core.util.IdUtil;
+import com.lt.mq.RabbitMqServiceTestCase;
 import com.lt.mq.Sender;
 import com.lt.mq.common.MQConstans;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -11,11 +12,11 @@ import org.springframework.beans.factory.annotation.Autowired;
  **/
 public class WorkSender implements Sender {
     @Autowired
-    AmqpTemplate amqpTemplate;
+    RabbitMqServiceTestCase rabbitMqServiceTestCase;
 
     @Override
-    public void send(String str) {
-        String sendStr = "****" + str + "***" + System.currentTimeMillis();
-        amqpTemplate.convertAndSend(MQConstans.WORK_ROUTER_KEY, sendStr);
+    public void send(Object object) {
+        rabbitMqServiceTestCase.baseSend("", MQConstans.WORK_ROUTER_KEY, object
+                , IdUtil.simpleUUID(), 100000L);
     }
 }

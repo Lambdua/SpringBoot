@@ -34,7 +34,9 @@ public class DirectRabbitConfig {
     }
 
 
-    //同上,和queue1 有一个共同的router-key:Constants.DIRECT_ROUTER_KEYS.get(1)
+    /**
+     * 同上,和queue1 有一个共同的router-key:Constants.DIRECT_ROUTER_KEYS.get(1)
+     */
     @Bean
     public Binding directBinding2a(DirectExchange directExchange, Queue directQueue2) {
         return BindingBuilder.bind(directQueue2).to(directExchange).with(MQConstans.DIRECT_ROUTER_KEYS.get(1));

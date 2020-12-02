@@ -8,5 +8,15 @@ spring:
     port: 5672
     username: root
     password: rabbitmqpwd
+    # 实现ReturnCallback接口，如果消息从交换器发送到对应队列失败时触发
+    publisher-returns: true
+    # 该配置已过时，使用下面的配置
+#    publisher-confirms: true
+    # 确认消息发送成功，通过实现ConfirmCallBack接口，消息发送到交换器Exchange后触发回调
+    publisher-confirm-type: correlated
+    listener:
+      # 消息消费确认，可以手动确认
+      simple:
+        acknowledge-mode: manual
 
 

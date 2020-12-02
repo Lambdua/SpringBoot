@@ -1,12 +1,11 @@
 package com.lt.mq.simple;
 
+import cn.hutool.core.util.IdUtil;
+import com.lt.mq.RabbitMqServiceTestCase;
 import com.lt.mq.Sender;
 import com.lt.mq.common.MQConstans;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.time.LocalDateTime;
 
 /**
  * @author liangtao
@@ -15,12 +14,12 @@ import java.time.LocalDateTime;
 @Component
 public class SimpleSender implements Sender {
     @Autowired
-    private AmqpTemplate amqpTemplate;
+    RabbitMqServiceTestCase rabbitMqService;
 
     @Override
-    public void send(String i){
-        String sender="**"+i+"**hello mq "+ LocalDateTime.now();
-        //指定router_Key,这里的routerKey直接会定位到一个队列中
-        amqpTemplate.convertAndSend(MQConstans.SIMPLE_ROUTER_KEY,sender);
+    public void send(Object object) {
+        rabbitMqService.baseSend("",MQConstans.SIMPLE_ROUTER_KEY,
+                object, IdUtil.simpleUUID(),100000L);
+
     }
 }

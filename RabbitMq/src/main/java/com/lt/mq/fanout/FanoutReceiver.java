@@ -1,31 +1,34 @@
 package com.lt.mq.fanout;
 
-import com.lt.mq.Receiver;
+import com.lt.mq.RabbitMqServiceTestCase;
+import com.rabbitmq.client.Channel;
+import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
+
+import java.io.IOException;
 
 /**
  * @author liangtao
  * @Date 2020/6/23
  **/
-public class FanoutReceiver implements Receiver {
-
-
+public class FanoutReceiver  {
     //表达式: == fanoutQueue1().getName;
     @RabbitListener(queues = "#{fanoutQueue1.name}")
-    public void reveive1(String msg) {
-        msg = "type:1 " + msg;
-        accept(msg);
+    public void reveive1(Message message, Channel channel) throws IOException {
+        System.out.println("type1"
+        );
+        accept(message, channel);
     }
 
     @RabbitListener(queues = "#{fanoutQueue2.name}")
-    public void reveive2(String msg) {
-        msg = "type:2 " + msg;
-        accept(msg);
+    public void reveive2(Message message, Channel channel) throws IOException {
+        System.out.println("type2");
+        accept(message, channel);
+    }
+
+    private void accept(Message message, Channel channel) throws IOException {
+        RabbitMqServiceTestCase.baseReceiver(message, channel);
     }
 
 
-    @Override
-    public void accept(String msg) {
-        System.out.println(" msg: " + msg);
-    }
 }

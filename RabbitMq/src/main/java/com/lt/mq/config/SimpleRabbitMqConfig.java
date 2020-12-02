@@ -1,5 +1,8 @@
 package com.lt.mq.config;
 
+import com.lt.mq.common.MQConstans;
+import org.springframework.amqp.core.Queue;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -11,13 +14,10 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SimpleRabbitMqConfig {
 
-    /**
-     * 这里队列都不用设置，直接使用默认队列
-     */
-//    @Bean
-//    public Queue queue() {
-//        return new Queue(MQConstans.SIMPLE_ROUTER_KEY);
-//    }
+    @Bean
+    public Queue queue() {
+        return new Queue(MQConstans.SIMPLE_ROUTER_KEY);
+    }
 
 
 

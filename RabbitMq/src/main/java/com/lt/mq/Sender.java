@@ -5,5 +5,5 @@ package com.lt.mq;
  * @Date 2020/6/23
  **/
 public interface Sender {
-    void send(String str);
+    void send(Object object);
 }

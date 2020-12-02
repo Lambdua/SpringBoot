@@ -1,8 +1,9 @@
 package com.lt.mq.fanout;
 
+import cn.hutool.core.util.IdUtil;
+import com.lt.mq.RabbitMqServiceTestCase;
 import com.lt.mq.Sender;
 import com.lt.mq.common.MQConstans;
-import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -11,12 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
  **/
 public class FanoutSender implements Sender {
     @Autowired
-    AmqpTemplate amqpTemplate;
+    RabbitMqServiceTestCase rabbitMqService;
+
 
     @Override
-    public void send(String str) {
-        String sendStr = "****" + str + "***" + System.currentTimeMillis();
-        //设置router_key为null,使用广播模式
-        amqpTemplate.convertAndSend(MQConstans.FANOUT_EXCHANGE_NAME, "", sendStr);
+    public void send(Object object) {
+        rabbitMqService.baseSend(MQConstans.FANOUT_EXCHANGE_NAME, "",
+                object, IdUtil.simpleUUID(), 100000L);
+
     }
 }
