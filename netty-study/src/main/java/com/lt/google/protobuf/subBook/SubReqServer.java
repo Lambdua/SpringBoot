@@ -41,7 +41,14 @@ public class SubReqServer {
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            //添加ProtobufVarint32FrameDecoder,用于半包处理
+                            /**
+                             *  protobufDecoder仅仅负责解码，并不支持读半包，因此，在protobufDecoder前面
+                             *  添加ProtobufVarint32FrameDecoder,用于半包处理。
+                             *  一般有三种方式可以选择
+                             *  1. 使用Netty提供的ProtobufVarint32FrameDecoder
+                             *  2. 继承Netty提供的通用半包解码器 LengthFieldBasedFrameDecoder;
+                             *  3. 继承ByteToMesageDecoder类，自己处理半包消息
+                             */
                             ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
                             ch.pipeline().addLast(
                                     //添加 ProtobufDecoder,需要一个MessageLite类型,这里实际上就是告诉ProtobufDecoder
