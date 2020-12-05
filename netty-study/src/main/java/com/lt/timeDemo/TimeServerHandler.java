@@ -2,8 +2,8 @@ package com.lt.timeDemo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 import java.time.LocalDateTime;
 
@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
  * @description
  * @date 2020年12月01 14:02
  **/
-public class TimeServerHandler extends ChannelHandlerAdapter {
+public class TimeServerHandler extends ChannelInboundHandlerAdapter {
     private static int count = 0;
 
     @Override

@@ -1,15 +1,15 @@
 package com.lt.google.protobuf.subBook;
 
 import com.lt.google.protobuf.proto.SubscribeReqProto;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * @author 梁先生
  * @description
  * @Date 2020/12/3
  **/
-public class SubReqClientHandler extends ChannelHandlerAdapter {
+public class SubReqClientHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

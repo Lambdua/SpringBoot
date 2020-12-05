@@ -2,8 +2,8 @@ package com.lt.echoDemo;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * @author 梁先生
@@ -11,7 +11,7 @@ import io.netty.channel.ChannelHandlerContext;
  * @Date 2020/12/2
  **/
 @ChannelHandler.Sharable
-public class EchoServerHandler extends ChannelHandlerAdapter {
+public class EchoServerHandler extends ChannelInboundHandlerAdapter {
     int count = 0;
 
     @Override

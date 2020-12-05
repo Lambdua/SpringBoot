@@ -3,8 +3,8 @@ package com.lt.google.protobuf.subBook;
 import com.lt.google.protobuf.proto.SubscribeReqProto;
 import com.lt.google.protobuf.proto.SubscribeRespProto;
 import io.netty.channel.ChannelHandler;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * @author 梁先生
@@ -12,7 +12,7 @@ import io.netty.channel.ChannelHandlerContext;
  * @Date 2020/12/3
  **/
 @ChannelHandler.Sharable
-public class SubReqServerHandler extends ChannelHandlerAdapter {
+public class SubReqServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {

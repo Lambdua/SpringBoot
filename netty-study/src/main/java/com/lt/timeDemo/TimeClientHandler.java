@@ -2,15 +2,15 @@ package com.lt.timeDemo;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 
 /**
  * @author liangtao
  * @description
  * @date 2020年12月01 14:42
  **/
-public class TimeClientHandler extends ChannelHandlerAdapter {
+public class TimeClientHandler extends ChannelInboundHandlerAdapter {
     byte[] req;
     private int count =0;
     public TimeClientHandler() {
