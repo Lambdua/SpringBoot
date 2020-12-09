@@ -18,7 +18,6 @@ import java.nio.charset.StandardCharsets;
 public abstract class AbstractHttpJsonEncoder<T> extends MessageToMessageEncoder<T> {
     private ObjectMapper om = new ObjectMapper();
 
-    final static String UTF_8_Str = StandardCharsets.UTF_8.name();
     final static Charset UTF_8 = StandardCharsets.UTF_8;
 
     protected ByteBuf encode0(ChannelHandlerContext ctx, Object body) {
@@ -31,15 +30,5 @@ public abstract class AbstractHttpJsonEncoder<T> extends MessageToMessageEncoder
         }
     }
 
-    /**
-     * 从一条消息编码到另一条消息。对于此编码器可以处理的每条书面消息，将调用此方法。
-     *
-     * @param ctx the {@link ChannelHandlerContext} which this {@link MessageToMessageEncoder} belongs to
-     * @param msg the message to encode to an other one
-     * @param out 应该在其中添加编码消息的列表需要进行某种汇总
-     */
-//    @Override
-//    protected void encode(ChannelHandlerContext ctx, T msg, List<Object> out) {
-//    }
 
 }

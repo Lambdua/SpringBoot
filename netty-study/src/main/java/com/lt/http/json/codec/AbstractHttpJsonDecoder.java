@@ -22,17 +22,16 @@ public abstract class AbstractHttpJsonDecoder<T> extends MessageToMessageDecoder
         this.clazz = clazz;
     }
 
-    final static String UTF_8_Str = StandardCharsets.UTF_8.name();
     final static Charset UTF_8 = StandardCharsets.UTF_8;
 
 
-    protected Object decode0(ChannelHandlerContext arg0, ByteBuf body) {
+    protected Object decode0(ChannelHandlerContext ctx, ByteBuf body) {
         try {
             Object result = om.readValue(body.toString(UTF_8), clazz);
             System.out.println("body: " + body);
             return result;
         } catch (JsonProcessingException e) {
-            System.out.println("不支持的格式转换： " + body + " --->转换类型:" + clazz);
+            System.out.println("不支持的格式转换： " + body + " -->转换类型:" + clazz);
             System.out.println(e);
             return null;
         }
