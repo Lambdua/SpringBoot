@@ -14,4 +14,9 @@ import lombok.Data;
 public class HttpJsonRequest {
     private FullHttpRequest request;
     private Object body;
+
+    public static void main(String[] args) {
+
+    }
+
 }

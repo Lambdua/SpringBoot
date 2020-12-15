@@ -47,7 +47,7 @@ public class SubReqServer {
                              *  一般有三种方式可以选择
                              *  1. 使用Netty提供的ProtobufVarint32FrameDecoder
                              *  2. 继承Netty提供的通用半包解码器 LengthFieldBasedFrameDecoder;
-                             *  3. 继承ByteToMesageDecoder类，自己处理半包消息
+                             *  3. 继承ByteToMessageDecoder类，自己处理半包消息
                              */
                             ch.pipeline().addLast(new ProtobufVarint32FrameDecoder());
                             ch.pipeline().addLast(
