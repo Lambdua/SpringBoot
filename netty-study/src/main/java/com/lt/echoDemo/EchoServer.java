@@ -24,7 +24,7 @@ import io.netty.handler.logging.LoggingHandler;
 public class EchoServer {
 
     public static void main(String[] args) throws InterruptedException {
-        int port=8083;
+        int port = 8083;
         new EchoServer().bind(port);
     }
 

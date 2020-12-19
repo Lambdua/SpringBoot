@@ -55,7 +55,6 @@ public class NIOServer {
                                 }
                             }
                         }
-//                        readData(selectionKey);
                     }
                     iterator.remove();
                 }
