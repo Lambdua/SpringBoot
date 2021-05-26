@@ -1,5 +1,5 @@
 server:
-  port: 9090
+  port: 9991
 spring:
   application:
     name: redis-learn
@@ -9,7 +9,7 @@ spring:
   #    username: root
   #    password: rabbitmqpwd
   redis:
-    port: 6379
+    port: 6378
     host: 121.199.44.208
     #    password: redis12
     lettuce:

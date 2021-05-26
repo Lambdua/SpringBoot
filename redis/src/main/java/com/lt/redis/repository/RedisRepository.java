@@ -7,10 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.RedisClusterNode;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.connection.RedisServerCommands;
-import org.springframework.data.redis.core.HashOperations;
-import org.springframework.data.redis.core.ListOperations;
-import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.RedisSerializer;
 import org.springframework.stereotype.Component;
 
@@ -81,6 +78,10 @@ public class RedisRepository implements InitializingBean {
         return (ListOperations<String, V>) redisTemplate.opsForList();
     }
 
+
+    public <V> ZSetOperations<String, V> opsForZSet(){
+        return (ZSetOperations<String, V>) redisTemplate.opsForZSet();
+    }
 
     /**
      * 清空DB
