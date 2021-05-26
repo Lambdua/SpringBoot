@@ -25,6 +25,7 @@ class RedisRepositoryTest {
 
     @Autowired
     RedisRepository redisRepository;
+
     private static final ObjectMapper om = new ObjectMapper();
 
     private static final String USER_KEY = "user";
