@@ -14,6 +14,7 @@ class MethodCostTimeProxyBeanPostProcessorTest {
 
     @Autowired
     Service1 service1;
+
     @Autowired
     Service2 service2;
 
