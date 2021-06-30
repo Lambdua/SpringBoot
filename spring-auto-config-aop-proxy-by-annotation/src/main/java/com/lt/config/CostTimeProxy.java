@@ -21,7 +21,7 @@ public class CostTimeProxy implements MethodInterceptor {
     @Override
     public Object intercept(Object o, Method method, Object[] args, MethodProxy methodProxy) throws Throwable {
         long startTime=System.currentTimeMillis();
-        //嗲用被代理对象的方法
+        //调用被代理对象的方法
         Object result = method.invoke(target, args);
         long endTime = System.currentTimeMillis();
         System.out.println(method + "，耗时(毫秒)：" + (endTime - startTime));
