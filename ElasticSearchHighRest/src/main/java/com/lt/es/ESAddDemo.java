@@ -30,7 +30,7 @@ public class ESAddDemo {
         ESAddDemo esAddDemo = new ESAddDemo();
 //        esAddDemo.addByJson();
         esAddDemo.addByMap();
-        esAddDemo.addByXContentBuilder();
+//        esAddDemo.addByXContentBuilder();
         esAddDemo.client.close();
     }
 

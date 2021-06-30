@@ -29,15 +29,18 @@ public class EsClient {
                     @Override
                     public HttpAsyncClientBuilder customizeHttpClient(HttpAsyncClientBuilder httpClientBuilder) {
                         httpClientBuilder.disableAuthCaching();
-
                         final CredentialsProvider credentialsProvider = new BasicCredentialsProvider();
                         credentialsProvider.setCredentials(AuthScope.ANY,
-                                new UsernamePasswordCredentials("elastic", "123456"));  //es
+                                new UsernamePasswordCredentials("elastic", "agile12345"));  //es
                         return httpClientBuilder.setDefaultCredentialsProvider(credentialsProvider);
                     }
                 })
         );
     }
+
+//    public static void main(String[] args) {
+//        RestHighLevelClient client = getInstance();
+//    }
 
     public static RestHighLevelClient getInstance(){
         return Instance.client;
