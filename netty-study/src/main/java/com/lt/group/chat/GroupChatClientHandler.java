@@ -13,4 +13,9 @@ public class GroupChatClientHandler extends SimpleChannelInboundHandler<String> 
     protected void channelRead0(ChannelHandlerContext ctx, String msg) throws Exception {
         System.out.println("msg = " + msg);
     }
+
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        System.out.println("客户端channle激活了");
+    }
 }
