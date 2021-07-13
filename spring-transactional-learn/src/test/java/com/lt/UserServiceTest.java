@@ -28,8 +28,11 @@ public class UserServiceTest {
         User userDb = userDao.getByName("里斯");
         System.out.println(userDb);
         System.out.println("-----------");
-
+        userDb.setAddr("大西北");
+        userDao.updateById(userDb);
+        System.out.println(userDao.getByName(userDb.getName()));
         for (User user : userDao.list()) {
+            userDao.deleteByName(user.getName());
             System.out.println(user);
         }
     }
