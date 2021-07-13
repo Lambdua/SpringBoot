@@ -34,6 +34,7 @@ public class HttpJsonServerHandler extends SimpleChannelInboundHandler<HttpJsonR
         System.out.println("Http服务器接收请求: " + order);
         doSomething(order);
         ChannelFuture future = ctx.writeAndFlush(new HttpJsonResponse(null, order));
+//        ChannelFuture future = ctx.channel().writeAndFlush(new HttpJsonResponse(null, order));
         if (!HttpUtil.isKeepAlive(request)) {
             future.addListener(new GenericFutureListener<Future<? super Void>>() {
                 @Override
