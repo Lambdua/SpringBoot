@@ -22,4 +22,6 @@ public interface UserDao {
     User getByName(@Param("name") String name);
 
     void deleteByName(@Param("name")String name);
+
+    void updateByName(User user);
 }

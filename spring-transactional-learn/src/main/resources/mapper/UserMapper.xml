@@ -13,6 +13,13 @@
             addr=#{addr}
         where id = #{id}
     </update>
+    <update id="updateByName">
+        update t_business_user
+        set
+            age=#{age},
+            addr=#{addr}
+        where name = #{name}
+    </update>
     <delete id="deleteByName">
         delete
         from t_business_user
@@ -24,6 +31,8 @@
         select *
         from t_business_user
     </select>
+
+
 
     <select id="getByName" resultType="com.lt.model.User">
         select *

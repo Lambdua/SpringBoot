@@ -34,6 +34,13 @@ public class ModifyUserService implements UserModifyService {
     }
 
     @Override
+    public void updateByName(User user) {
+        System.out.println("此时数据库中的user数量： "+userDao.list().size());
+        userDao.updateByName(user);
+        throw new RuntimeException("抛出异常");
+    }
+
+    @Override
     public List<User> list() {
         return userDao.list();
     }

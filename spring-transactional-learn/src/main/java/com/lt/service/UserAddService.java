@@ -1,6 +1,8 @@
 package com.lt.service;
 
 import com.lt.model.User;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * @author liangtao
@@ -10,4 +12,8 @@ import com.lt.model.User;
 public interface UserAddService {
 
     boolean addUser(User user);
+
+
+    @Transactional(propagation = Propagation.REQUIRED)
+    void transaction();
 }

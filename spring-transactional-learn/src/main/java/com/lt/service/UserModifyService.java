@@ -1,6 +1,8 @@
 package com.lt.service;
 
 import com.lt.model.User;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -12,9 +14,17 @@ import java.util.List;
 public interface UserModifyService {
     User getById(int id);
 
+    @Transactional(propagation = Propagation.REQUIRED)
     void delByName(String name);
 
+
     void updateById(User user);
+
+//    @Transactional(propagation = Propagation.REQUIRED)
+//    @Transactional(propagation = Propagation.SUPPORTS)
+
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    void updateByName(User user);
 
     List<User> list();
 }

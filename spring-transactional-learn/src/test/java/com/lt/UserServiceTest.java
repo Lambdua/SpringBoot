@@ -2,8 +2,12 @@ package com.lt;
 
 import com.lt.dao.UserDao;
 import com.lt.model.User;
+import com.lt.service.UserAddService;
+import com.lt.service.UserModifyService;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
@@ -20,6 +24,22 @@ public class UserServiceTest {
 
     @Resource
     UserDao userDao;
+
+    @Autowired
+    UserAddService userAddService;
+
+    @Autowired
+    UserModifyService userModifyService;
+
+    @Before
+    public void clear(){
+        userDao.list().forEach(user->userDao.deleteByName(user.getName()));
+    }
+
+    @Test
+    public void transactionTest(){
+        userAddService.transaction();
+    }
 
     @Test
     public void userTest(){
