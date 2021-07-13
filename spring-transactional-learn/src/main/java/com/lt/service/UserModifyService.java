@@ -23,7 +23,7 @@ public interface UserModifyService {
 //    @Transactional(propagation = Propagation.REQUIRED)
 //    @Transactional(propagation = Propagation.SUPPORTS)
 
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
+    @Transactional(propagation = Propagation.REQUIRED)
     void updateByName(User user);
 
     List<User> list();
