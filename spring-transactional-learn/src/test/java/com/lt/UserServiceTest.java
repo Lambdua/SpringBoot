@@ -12,6 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @author liangtao
@@ -50,10 +51,13 @@ public class UserServiceTest {
         System.out.println("-----------");
         userDb.setAddr("大西北");
         userDao.updateById(userDb);
-        System.out.println(userDao.getByName(userDb.getName()));
         for (User user : userDao.list()) {
-            userDao.deleteByName(user.getName());
+//            userDao.deleteByName(user.getName());
             System.out.println(user);
         }
+        System.out.println("------------");
+
+        List<User> list = userDao.list("里斯");
+        System.out.println(list.get(0));
     }
 }

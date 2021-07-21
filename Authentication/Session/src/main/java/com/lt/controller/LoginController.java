@@ -31,8 +31,14 @@ public class LoginController {
 
     @GetMapping(value = "/logout", produces = {"text/plain;charset=UTF-8"})
     public String logout(HttpSession session) {
-        session.invalidate();
-        return "退出成功";
+        UserDto userDto = (UserDto) session.getAttribute(UserDto.SESSION_USER_KEY);
+        if (userDto!=null){
+            //03C0CD51BC7FF0292BD11988E5D3ED7B
+            System.out.println(session.getId());
+            session.invalidate();
+            return userDto.getUsername()+"推出成功";
+        }
+        return "没有登录！";
     }
 
 }

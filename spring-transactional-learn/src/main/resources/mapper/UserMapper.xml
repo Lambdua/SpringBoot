@@ -15,8 +15,7 @@
     </update>
     <update id="updateByName">
         update t_business_user
-        set
-            age=#{age},
+        set age=#{age},
             addr=#{addr}
         where name = #{name}
     </update>
@@ -30,8 +29,12 @@
     <select id="list" resultType="com.lt.model.User">
         select *
         from t_business_user
+        <where>
+            <if test="name != null and name !=''">
+                name=#{name}
+            </if>
+        </where>
     </select>
-
 
 
     <select id="getByName" resultType="com.lt.model.User">
