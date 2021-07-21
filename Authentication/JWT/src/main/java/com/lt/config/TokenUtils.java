@@ -14,7 +14,6 @@ import java.util.Date;
  * @date 2021年07月21 14:33
  **/
 public class TokenUtils {
-
     /**
      * 获取token
      * Algorithm.HMAC256():使用HS256生成token,密钥则是用户的密码，唯一密钥的话可以保存在服务端。

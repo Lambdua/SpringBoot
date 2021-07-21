@@ -25,6 +25,9 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     private static final String TOKEN_HEADER = "token";
 
+    /**
+     * 这里方便别的地方拿到token，方便使用，不推荐工作中使用。
+     */
     public static final ThreadLocal<UserDto> currentUser = new NamedThreadLocal<>("UserThread");
 
     /**
@@ -62,7 +65,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
             //验证token
             Algorithm algorithm;
             JWTVerifier jwtVerifier = JWT.require(Algorithm.HMAC256(userDto.getPassword()))
-//                    .withClaim("自定义声明", true)
+                    .withClaim("自定义声明", true)
                     .build();
             try {
                 jwtVerifier.verify(token);
@@ -76,6 +79,7 @@ public class AuthenticationInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)  {
+        //最后要清除ThreadLocal中的用户信息，不然又并发问题
         currentUser.remove();
     }
 }
