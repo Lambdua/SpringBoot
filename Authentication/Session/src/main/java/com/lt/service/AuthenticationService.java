@@ -6,9 +6,7 @@ import com.lt.model.AuthenticationRequest;
 import com.lt.model.UserDto;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * 认证服务,不使用接口+实现类的方式，因为觉得不是很有必要
@@ -24,14 +22,8 @@ public class AuthenticationService {
     private static final Map<String, UserDto> USER_MAP = MapUtil.newHashMap(2);
 
     static {
-        Set<String> authorities1 = new HashSet<>();
-        //这个p1我们人为让它和/r/r1对应
-        authorities1.add("p1");
-        Set<String> authorities2 = new HashSet<>();
-        //这个p2我们人为让它和/r/r2对应
-        authorities2.add("p2");
-        USER_MAP.put("zhangsan", new UserDto("1010", "zhangsan", "123", "张三", "133443", authorities1));
-        USER_MAP.put("lisi", new UserDto("1011", "lisi", "456", "李四", "144553", authorities2));
+        USER_MAP.put("zhangsan", new UserDto("1010", "zhangsan", "123", "133443"));
+        USER_MAP.put("lisi", new UserDto("1011", "lisi", "456", "144553"));
     }
 
     /**

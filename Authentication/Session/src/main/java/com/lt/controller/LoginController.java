@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
  **/
 @RestController
 public class LoginController {
+    private static final String SESSION_USER_KEY="token";
 
     @Autowired
     AuthenticationService authenticationService;
@@ -25,13 +26,13 @@ public class LoginController {
     public String login(AuthenticationRequest authenticationRequest, HttpSession session) {
         UserDto userDto = authenticationService.authentication(authenticationRequest);
         //存入session
-        session.setAttribute(UserDto.SESSION_USER_KEY, userDto);
+        session.setAttribute(SESSION_USER_KEY, userDto);
         return userDto.getUsername() + "登录成功";
     }
 
     @GetMapping(value = "/logout", produces = {"text/plain;charset=UTF-8"})
     public String logout(HttpSession session) {
-        UserDto userDto = (UserDto) session.getAttribute(UserDto.SESSION_USER_KEY);
+        UserDto userDto = (UserDto) session.getAttribute(SESSION_USER_KEY);
         if (userDto!=null){
             //03C0CD51BC7FF0292BD11988E5D3ED7B
             System.out.println(session.getId());
