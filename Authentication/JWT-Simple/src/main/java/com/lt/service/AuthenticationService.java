@@ -22,8 +22,8 @@ public class AuthenticationService {
     private static final Map<String, UserDto> USER_MAP = MapUtil.newHashMap(2);
 
     static {
-        USER_MAP.put("zhangsan", new UserDto("1010", "zhangsan", "123", "张三", "133443" ));
-        USER_MAP.put("lisi", new UserDto("1011", "lisi", "456", "李四", "144553" ));
+        USER_MAP.put("zhangsan", new UserDto("1010", "zhangsan", "123",  "133443" ));
+        USER_MAP.put("lisi", new UserDto("1011", "lisi", "456",  "144553" ));
     }
 
     /**
