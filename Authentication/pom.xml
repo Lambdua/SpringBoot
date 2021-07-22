@@ -20,6 +20,7 @@
         <module>OAuth2</module>
         <module>JWT-Simple</module>
         <module>Session</module>
+        <module>spring-security-jwt</module>
     </modules>
 
     <properties>
