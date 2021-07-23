@@ -1,7 +1,6 @@
 package com.lt.config;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
 import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurer;
@@ -15,7 +14,7 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Res
  **/
 @Configuration
 @EnableResourceServer
-@Order(3)
+//@Order(3)
 public class ResourceServerConfig implements ResourceServerConfigurer {
     @Override
     public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
@@ -25,7 +24,7 @@ public class ResourceServerConfig implements ResourceServerConfigurer {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.requestMatchers()
-                .antMatchers("/user/getUserList/**")
+                .antMatchers("/user/getUserList")
                 .and().authorizeRequests().anyRequest().access("#oauth2.hasScope('read')");
     }
 }
