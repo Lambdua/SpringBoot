@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
+<%@ page pageEncoding="UTF-8"%>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">

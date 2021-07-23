@@ -15,6 +15,8 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
  **/
 @EnableWebSecurity
 @Configuration
+//确保 WebSecurityConfigurerAdapter在ResourceConfig之前执行
+//@Order()
 public class UserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) throws Exception {
@@ -29,12 +31,12 @@ public class UserSecurityConfig extends WebSecurityConfigurerAdapter {
                 //允许所有
                 .antMatchers("/").permitAll()
                 //访问/user/getUserList路由的带有ADMIN的的任何请求方式都要认证
-                .antMatchers("/user/getUserList").hasAnyRole("ADMIN").anyRequest().authenticated()
+                .antMatchers("/user/getUserList").hasAnyRole("ADMIN").anyRequest()
+                .authenticated()
                 //登录请求放行
                 .and().formLogin().permitAll()
                 //推出请求放行
                 .and().logout().permitAll();
-        //开启跨域
         http.csrf().disable();
     }
 

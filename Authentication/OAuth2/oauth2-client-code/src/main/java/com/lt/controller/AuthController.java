@@ -2,6 +2,8 @@ package com.lt.controller;
 
 import cn.hutool.http.HttpRequest;
 import cn.hutool.http.HttpResponse;
+import cn.hutool.json.JSONUtil;
+import com.lt.model.UserDto;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
@@ -11,13 +13,15 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.List;
+
 /**
  * @author liangtao
  * @description
  * @date 2021年07月22 17:24
  **/
 @Controller
-public class UserController {
+public class AuthController {
 
     private static final Integer STATE = 12345;
 
@@ -37,6 +41,8 @@ public class UserController {
             "code=%s&" +
             "grant_type=%s&" +
             "redirect_uri=%s";
+
+    private static final String getUserListUrl="http://localhost:1112/user/getUserList";
 
     /**
      * 申请认证，访问服务端认证服务器，进行认证
@@ -86,7 +92,20 @@ public class UserController {
                 .basicAuth(CLIENT_ID, CLIENT_SECRET)
                 .execute();
         if (response.isOk()) {
-            System.out.println("get token success," + response.body());
+            //{"access_token":"7ea6df34-c704-4570-8463-27a258686149","token_type":"bearer","expires_in":43199,"scope":"read"}
+            String responseStr = response.body();
+            System.out.println("get token success," + responseStr);
+            String token = JSONUtil.parseObj(responseStr).getStr("access_token");
+            HttpResponse userListResponse = HttpRequest.get(getUserListUrl).auth("Bearer " + token).execute();
+            if (userListResponse.isOk()){
+                List<UserDto> userList = JSONUtil.toList(JSONUtil.parseArray(userListResponse.body()), UserDto.class);
+                System.out.println("userList: "+userList);
+                ModelAndView modelAndView = new ModelAndView("showUserList");
+                modelAndView.addObject("userList",userList);
+                return modelAndView;
+            }else {
+                System.out.println("get userList failure,status:"+userListResponse.getStatus()+",cause: " + userListResponse.body());
+            }
         } else {
             System.out.println("get token failure,cause: " + response.body());
         }
