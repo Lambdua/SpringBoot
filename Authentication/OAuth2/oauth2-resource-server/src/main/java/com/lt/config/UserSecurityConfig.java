@@ -6,6 +6,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 /**
  * @author liangtao
@@ -40,7 +41,10 @@ public class UserSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(AuthenticationManagerBuilder authenticationMgr) throws Exception {
         //基于内存的认证方式
-        authenticationMgr.inMemoryAuthentication().withUser("admin").password("admin")
+        authenticationMgr.inMemoryAuthentication()
+                .passwordEncoder(new BCryptPasswordEncoder())
+                //密码123456
+                .withUser("admin").password("$2a$10$r9i69zynZbxFmf/zgBacNOP3U8FOC5a00rFMbIvaZNxMvqZf7ax0q")
                 .authorities("ROLE_ADMIN");
     }
 
