@@ -74,7 +74,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity http) throws Exception {
-//        http.authorizeRequests().antMatchers("/**").hasRole("USER").and().httpBasic();
 
         http.csrf().disable();
         http
@@ -82,7 +81,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //同 login.html的 form action中指向的一样，只想
                 .loginProcessingUrl("/login")
                 .loginPage("/login.html")
-                //这里的是内部跳转，发送的是get请求，且可以获取 Authtication认证对象
+                /**
+                 * 注意，下面的三个登录成功，和三个登录失败的处理方法，security只会执行最后定义的一个成功/失败处理方式。
+                 * 根据定义的顺序进行覆盖。
+                 */
+
                 /**
                  * defaultSuccessUrl 是一个重载方法
                  * 假如我们还没有登录认证，在浏览器输入一个不存在的url，例如localhost:8080/test
@@ -90,13 +93,27 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                  * 而不是设置的/defaultSuccess。
                  * 使用第二个方法，并且第二参数置为true，那么就不会出现上面问题，会直接转到/main。
                  */
-                .defaultSuccessUrl("/defaultSuccess",true)
-                //登录成功重定向url,这里配置了成功重定向url，就不会再走上面配置的默认 defaultSuccessUrl
-                .successForwardUrl("/user/getUserList");
-        http.authorizeRequests().antMatchers("/login.html").permitAll()
+                //这里的是内部跳转，发送的是get请求，且可以获取 Authtication认证对象
+                .defaultSuccessUrl("/defaultSuccess", true)
+                //登录成功handler
+                .successHandler((request, response, authentication) -> {
+                    System.out.println("内部successHandler");
+                    System.out.println(authentication.getPrincipal());
+                    System.out.println("登录的用户事： " + authentication.getName());
+                    System.out.println("内部successHandler");
+                })
+                //登录成功重定向url
+                .successForwardUrl("/loginSuccess")
+                .failureHandler((request, response, e) -> {
+                    System.out.println("failureHandler ");
+                    System.out.println("失败原因：" + e.getMessage());
+                    System.out.println("failureHandler ");
+                })
+                .failureUrl("/defaultLoginFailure")
+                .failureForwardUrl("/loginFailure")
+        ;
+        http.authorizeRequests().antMatchers("/login.html", "/loginError.html").permitAll()
                 .anyRequest().authenticated();
-
-
     }
 
 }
