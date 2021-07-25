@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 /**
  * @author liangtao
- * @description
+ * @description 登录跳转接口，这里加不加`/`路由都可，默认是在 resource/static/目录下
  * @date 2021年07月22 16:56
  **/
 @Controller
@@ -47,11 +47,24 @@ public class LoginController {
         return "redirect:main.html";
     }
 
+    /**
+     * 登录失败重定向
+     * @author liangtao
+     * @date 2021/7/25
+     * @return java.lang.String
+     **/
     @PostMapping("/loginFailure")
     public String loginFailureUrl() {
         return "redirect:/loginError.html";
     }
 
+    /**
+     * 登录失败跳转
+     * @author liangtao
+     * @date 2021/7/25
+     * @param
+     * @return java.lang.String
+     **/
     @GetMapping("/defaultLoginFailure")
     public String defaultLoginFailureUrl() {
         return "loginError.html";

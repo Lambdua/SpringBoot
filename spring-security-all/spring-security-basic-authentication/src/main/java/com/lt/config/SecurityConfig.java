@@ -81,6 +81,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //同 login.html的 form action中指向的一样，只想
                 .loginProcessingUrl("/login")
                 .loginPage("/login.html")
+                //默认username  见过滤器 UsernamePasswordAuthenticationFilter
+                .usernameParameter("uname")
+                //默认password
+                .passwordParameter("pwd")
                 /**
                  * 注意，下面的三个登录成功，和三个登录失败的处理方法，security只会执行最后定义的一个成功/失败处理方式。
                  * 根据定义的顺序进行覆盖。
