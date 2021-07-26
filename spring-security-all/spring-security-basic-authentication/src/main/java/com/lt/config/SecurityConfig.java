@@ -87,7 +87,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordParameter("pwd")
                 /**
                  * 注意，下面的三个登录成功，和三个登录失败的处理方法，security只会执行最后定义的一个成功/失败处理方式。
-                 * 根据定义的顺序进行覆盖。
+                 * 根据定义的顺序进行覆盖。 三种适用于不同的场景.转发是服务器行为，重定向是客户端行为
+                 * 1. default 内部跳转
+                 * 2. forward 外部跳转 调用request.forward方法
+                 * 3. handler 更具体的处理
                  */
 
                 /**
@@ -116,7 +119,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .failureUrl("/defaultLoginFailure")
                 .failureForwardUrl("/loginFailure")
         ;
-        http.authorizeRequests().antMatchers("/login.html", "/loginError.html").permitAll()
+
+        /**
+         * security 的拦截器配置按照定义顺序进行拦截。
+         * 一个请求过来时，按照执行顺序一次拦截，顺序中匹配到任何一个拦截器（无论是拦截，还是放行),后续的拦截器都不再执行。
+         * 所以定义时，首先定义最精细的拦截器，将最宽泛的放在最后。
+         */
+        http.authorizeRequests()
+                /*
+                每一个参数是一个ant表达式
+                通配符	说明
+                ?	匹配任何单字符
+                *	匹配0或者任意数量的字符
+                **	匹配0或者更多的目录
+                */
+                .antMatchers("/login.html", "/loginError.html").permitAll()
+                .antMatchers("/js/**","/css/**").permitAll()
+                /*
+                   正则匹配，匹配正则表达式
+                 */
+                //放行图片
+                .regexMatchers(".+[.]png").permitAll()
+//                .regexMatchers(HttpMethod.GET,".+[.]png").permitAll()
                 .anyRequest().authenticated();
     }
 
